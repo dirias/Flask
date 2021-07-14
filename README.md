@@ -1,3 +1,11 @@
+- [Flask](#flask)
+  - [1. What is Flask](#1-what-is-flask)
+  - [1.1. Useful commands to set up a flask enviroment](#11-useful-commands-to-set-up-a-flask-enviroment)
+  - [1.2 Creating the first Flask app](#12-creating-the-first-flask-app)
+  - [1.3 Routes and View Functions](#13-routes-and-view-functions)
+  - [1.4 Server Startup](#14-server-startup)
+  - [1.5 Whole app](#15-whole-app)
+  
 # Flask
 ## 1. What is Flask
 
