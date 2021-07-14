@@ -50,7 +50,7 @@ usually created as follows:
   '''
   The __name__ == '__main__' Python idiom is used here to ensure that the development web server is started only when the script is executed directly. When the script is imported by another script, it is assumed that the parent script will launch a different server, so the app.run() call is skipped. Once the server starts up, it goes into a loop that waits for requests and services them. This loop continues until the application is stopped, for example by hitting Ctrl-C.
   
-  ### 1.5 Whole app
+  ## 1.5 Whole app
   ```
     from flask import Flask
     app = Flask(__name__)
