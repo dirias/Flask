@@ -10,3 +10,23 @@ Firebase: https://console.firebase.google.com
  gcloud config set project <project-name> => Cambia a otro proyecto
 
  Project name: platziflask-319918
+ 
+databse rules 
+
+1
+rules_version = '2';
+2
+service cloud.firestore {
+3
+  match /databases/{database}/documents {
+4
+    match /{document=**} {
+5
+      allow read, write: if true;
+6
+    }
+7
+  }
+8
+}
+
