@@ -2,4 +2,4 @@ venv/
 static/
 Flask_Web_Development_Developing.pdf
 __pycache__
-tests/__pycache__
+*/__pycache__

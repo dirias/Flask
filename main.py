@@ -1,23 +1,15 @@
-from flask import Flask, request, make_response, redirect, render_template, session, url_for, flash
+from flask import request, make_response, redirect, render_template, session, url_for, flash
 from flask.helpers import flash
 from flask_bootstrap import Bootstrap
-from flask_wtf import FlaskForm
-from flask_wtf.recaptcha import validators
-from wtforms.fields import StringField, PasswordField, SubmitField
-from wtforms.validators import DataRequired, data_required
+
 import unittest
+from app import create_app
+from app.forms import LoginForm
+from app.firebase_service import get_users, get_todos
 
-app = Flask(__name__)
-bootstrap =Bootstrap(app)
+app = create_app()
 
-app.config['SECRET_KEY'] = 'SUPER SECRETO'
 
-todos = ['Estudiar en Platzi', 'Practicar Japonés', 'Hacer ejercicios']
-
-class LoginForm(FlaskForm):
-    username = StringField('Nombre de Usuario', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Enviar')
 
 @app.cli.command()
 def test():
@@ -43,22 +35,17 @@ def index():
 @app.route('/hello', methods=['GET', 'POST'])
 def hello():
     user_ip = session.get('user_ip')
-    login_form = LoginForm()
     username = session.get('username')
     context = {
         'user_ip':user_ip, 
-        'todos':todos,
-        'login_form': login_form,
+        'todos': get_todos(user_id=username),
         'username': username,
     }
+    users = get_users()
 
-    if login_form.validate_on_submit():
-        #valida el formulario cuando hay un POST Verb
-        username = login_form.username.data
-        session['username'] = username
+    for user in users:
+        print(user.id)
+        print(user.to_dict()['password'])
 
-        flash('Nombre de usuario registrado con éxito!')
-
-        return redirect(url_for('index'))
 
     return render_template('hello.html',**context)#Pasa solo el contenido, no el diccioanrio

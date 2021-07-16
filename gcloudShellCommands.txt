@@ -1,0 +1,12 @@
+Firebase: https://console.firebase.google.com
+
+ 1034  which gcloud => Ver la ruta donde está instalado gcloud
+ 1035  gcloud auth login => Autenticarse
+ 1036  gcloud auth application-default login => Conectar con nuestro servidor local 
+ 1037  history > gcloudShellCommands.txt 
+
+ gcloud config list => Muestra información del proyecto actual
+
+ gcloud config set project <project-name> => Cambia a otro proyecto
+
+ Project name: platziflask-319918
