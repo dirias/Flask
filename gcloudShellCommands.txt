@@ -11,22 +11,7 @@ Firebase: https://console.firebase.google.com
 
  Project name: platziflask-319918
  
-databse rules 
+gcloud app deploy app.yaml 
 
-1
-rules_version = '2';
-2
-service cloud.firestore {
-3
-  match /databases/{database}/documents {
-4
-    match /{document=**} {
-5
-      allow read, write: if true;
-6
-    }
-7
-  }
-8
-}
+gcloud app deploy app.yaml --version <version>
 

@@ -80,4 +80,10 @@ usually created as follows:
   
 <p><b>Spanish documentation: </b>https://www.notion.so/platzididier/Curso-de-Flask-396b89926b044ce3a5c419a1f425d420</p>
 
+## Notas
+Podemos agregar estas lineas en la funcion de login para devolver al usuario a hello si ya esta logueado para que no puede ingresar de nuevo a la pagina de login una vez logueado
+    '''
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    '''
 
